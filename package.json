@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "istanbul cover -x *.spec.js -x setup.js --include-all-sources _mocha -- --require babel-core/register --require setup $ROOT/**/*.spec.js",
-    "posttest": "istanbul report --reporter=html"
+    "test": "_mocha --opts ./mocha.opts $PATTERN | gnomon --type=elapsed-total",
+    "test:project:coverage": "istanbul cover --root $ROOT --dir ./reports/$NAME _mocha -- --opts ./mocha.opts \"$ROOT/{,!(node_modules)/**/}*.spec.js\" | gnomon --type=elapsed-total",
+    "test:sample": "NAME=sample ROOT=./sample npm run test:project:coverage"
   },
   "author": "Jonathan Melcher",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
+    "gnomon": "^1.5.0",
     "istanbul": "^1.0.0-alpha.2",
     "jsdom": "^11.6.2",
     "mocha": "^5.0.4",

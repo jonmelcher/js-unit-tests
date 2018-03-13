@@ -1,0 +1,13 @@
+#istanbul help config
+verbose: false
+instrumentation:
+    extensions:
+        - .js
+    default-excludes: true
+    excludes: [ "**/reports/**", "*.spec.js", "js-unit-test-setup.js" ]
+    include-all-sources: true
+reporting:
+    print: summary
+    reports:
+        - cobertura
+        - html
