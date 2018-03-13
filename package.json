@@ -1,0 +1,23 @@
+{
+  "name": "js-unit-tests",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "istanbul cover -x *.spec.js -x setup.js --include-all-sources _mocha -- --require babel-core/register --require setup $ROOT/**/*.spec.js",
+    "posttest": "istanbul report --reporter=html"
+  },
+  "author": "Jonathan Melcher",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-module-resolver": "^3.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "istanbul": "^1.0.0-alpha.2",
+    "jsdom": "^11.6.2",
+    "mocha": "^5.0.4",
+    "sinon": "^4.4.3"
+  }
+}
